@@ -1,0 +1,21 @@
+sqlite: &sqlite
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+postgres: &postgress
+  adapter: postgresql
+  encoding: unicode
+  database: postgres
+  pool: 5
+  username: postgres
+  password:
+  host: db
+
+development:
+  <<: *sqlite
+  database: db/cashflow_development.sqlite3
+
+test:
+  <<: *sqlite
+  database: db/cashflow_test.sqlite3
