@@ -1,0 +1,5 @@
+%h1 Deltas
+- @entries.each do |entry|
+  - occurrence = Occurrence.new
+  - occurrence.entry = entry
+  %div= occurrence.name

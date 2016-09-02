@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry: one
+  frequency: 1
+  period: month
+
+two:
+  entry: two
+  frequency: 1
+  period: week

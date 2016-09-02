@@ -1,0 +1,25 @@
+%h1 Listing repeaters
+
+%table
+  %thead
+    %tr
+      %th Entry
+      %th Frequency
+      %th Period
+      %th
+      %th
+      %th
+
+  %tbody
+    - @repeaters.each do |repeater|
+      %tr
+        %td= repeater.entry
+        %td= repeater.frequency
+        %td= repeater.period
+        %td= link_to 'Show', repeater
+        %td= link_to 'Edit', edit_repeater_path(repeater)
+        %td= link_to 'Destroy', repeater, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Repeater', new_repeater_path

@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{ type: "button", 
+        "data-toggle" => "collapse", 
+        "data-target" => "#main-menu",
+        "aria-expanded": "false" }
+
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      = link_to "Cashflow", root_path, class: "navbar-brand"
+
+    .collapse.navbar-collapse#main-menu  
+      %ul.nav.navbar-nav
+        %li= link_to "Deltas", deltas_path
+        %li= link_to "Payments", payments_path
+        %li= link_to "Repeaters", repeaters_path
+        %li= link_to "Entries", entries_path

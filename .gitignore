@@ -12,3 +12,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore VIM files
+*.swp
+*.vim
+
+# Ignore sqlite3 databases
+*.sqlite3

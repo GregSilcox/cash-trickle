@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Entry:
+  = @repeater.entry
+%p
+  %b Frequency:
+  = @repeater.frequency
+%p
+  %b Period:
+  = @repeater.period
+
+= link_to 'Edit', edit_repeater_path(@repeater)
+\|
+= link_to 'Back', repeaters_path

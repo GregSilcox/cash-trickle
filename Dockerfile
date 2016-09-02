@@ -10,8 +10,12 @@ WORKDIR /cashflow
 COPY . /cashflow
 
 # Rails
-# This installs everything everytime. It's the best we can do
-# on Windows until they allow interactive mode.
-RUN bundle install
-RUN bundle install --binstubs
-CMD rails s -b 0.0.0.0
+RUN mkdir /bundle
+RUN bundle install --path /bundle
+
+# docker-compose run web bundle config --delete bin    # Turn off Bundler's stub generator
+# docker-compose run web rails app:update:bin         # Use the new Rails 4 executables
+# docker-compose build web
+# docker-compose run web bundle install --path /bundle
+# docker-compose run rails db:migrate
+# docker-compose up

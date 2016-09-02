@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Who:
+  = @payment.who
+%p
+  %b When:
+  = @payment.when
+%p
+  %b Amount:
+  = @payment.amount
+%p
+  %b Repeater:
+  = @payment.repeater
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path

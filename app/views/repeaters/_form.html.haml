@@ -1,0 +1,19 @@
+= form_for @repeater do |f|
+  - if @repeater.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@repeater.errors.count, "error")} prohibited this repeater from being saved:"
+      %ul
+        - @repeater.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :entry_id
+    = f.text_field :entry_id
+  .field
+    = f.label :frequency
+    = f.number_field :frequency
+  .field
+    = f.label :period
+    = f.text_field :period
+  .actions
+    = f.submit 'Save'

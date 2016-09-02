@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :payments
+  resources :repeaters
+  resources :entries
+  root 'deltas#index'
   resources :deltas
 end
   # The priority is based upon order of creation: first created -> highest priority.
