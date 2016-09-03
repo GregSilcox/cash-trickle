@@ -4,7 +4,7 @@ class RepeatersController < ApplicationController
   # GET /repeaters
   # GET /repeaters.json
   def index
-    @repeaters = Repeater.all
+    @repeaters = Repeater.all.order( { entry: :day } )
   end
 
   # GET /repeaters/1

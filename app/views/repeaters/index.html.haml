@@ -1,9 +1,11 @@
 %h1 Listing repeaters
 
-%table
+%table.table
   %thead
     %tr
-      %th Entry
+      %th Name
+      %th Amount
+      %th Day
       %th Frequency
       %th Period
       %th
@@ -13,12 +15,16 @@
   %tbody
     - @repeaters.each do |repeater|
       %tr
-        %td= repeater.entry
+        %td= repeater.entry.name
+        %td= repeater.entry.amount
+        %td= repeater.entry.day
         %td= repeater.frequency
         %td= repeater.period
         %td= link_to 'Show', repeater
         %td= link_to 'Edit', edit_repeater_path(repeater)
-        %td= link_to 'Destroy', repeater, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', repeater, 
+          :method => :delete, 
+          :data => { :confirm => 'Are you sure?' }
 
 %br
 

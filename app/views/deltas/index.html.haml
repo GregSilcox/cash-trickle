@@ -1,5 +1,26 @@
 %h1 Deltas
-- @entries.each do |entry|
-  - occurrence = Occurrence.new
-  - occurrence.entry = entry
-  %div= occurrence.name
+
+%table.table
+  %thead
+    %tr
+      %th Day
+      %th Name
+      %th Amount
+      %th Frequency
+      %th Period
+      %th Balance
+
+  %tbody
+    - @entries.each do |entry|
+      - @balance -= entry.amount if entry.amount
+      %tr
+        %td= entry.day
+        %td= entry.name
+        %td= entry.amount
+        - if entry.repeaters.any?
+          %td= entry.repeaters.first.frequency
+          %td= entry.repeaters.first.period
+        - else
+          %td 
+          %td 
+        %td= @balance
