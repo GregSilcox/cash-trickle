@@ -13,28 +13,28 @@
 ActiveRecord::Schema.define(version: 20160715202844) do
 
   create_table "entries", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "amount"
-    t.integer  "day"
-    t.string   "note"
+    t.string "name"
+    t.decimal "amount"
+    t.integer "day"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string   "who"
-    t.date     "when"
-    t.decimal  "amount"
-    t.integer  "repeater_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "who"
+    t.date "when"
+    t.decimal "amount"
+    t.integer "repeater_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["repeater_id"], name: "index_payments_on_repeater_id"
   end
 
   create_table "repeaters", force: :cascade do |t|
-    t.integer  "entry_id"
-    t.integer  "frequency"
-    t.string   "period"
+    t.integer "entry_id"
+    t.integer "frequency"
+    t.string "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entry_id"], name: "index_repeaters_on_entry_id"

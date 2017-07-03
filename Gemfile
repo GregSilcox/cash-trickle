@@ -1,26 +1,26 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '5.0.0' 
+gem 'rails', '5.1.1' 
 # gem 'pg'
 gem 'sqlite3'
 
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'haml-rails'
 
 gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

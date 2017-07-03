@@ -1,11 +1,13 @@
 class Repeater < ApplicationRecord
   belongs_to :entry
 
-  # return a payment if there is one on the given day
-  def payment date
-    return unless period == "month"
-    return unless entry.day == date.day_of_month
-    payments.create!( who: entry.name, 
-      amount: entry.amount, when: date )
+  # this is intended or monthly payments
+  def xpayments start_date, end_date
+  	dates = start_date.step( end_date ).
+  	  select {|date| date.day == entry.day }.
+  	  map { |date| payment.from date, entry }
   end
 end
+# 1. for a given entry, say Mortgage on the 15 of every month,
+# 2. return the Mortgage dates between April 7 and June 12.
+# 3. or return the Mortgage payments for 90 days starting today

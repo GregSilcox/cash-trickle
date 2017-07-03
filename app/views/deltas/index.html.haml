@@ -11,16 +11,13 @@
       %th Balance
 
   %tbody
-    - @entries.each do |entry|
+    - @payments.each do |payment|
+      - entry = payment.repeater.entry
       - @balance -= entry.amount if entry.amount
       %tr
         %td= entry.day
         %td= entry.name
         %td= entry.amount
-        - if entry.repeaters.any?
-          %td= entry.repeaters.first.frequency
-          %td= entry.repeaters.first.period
-        - else
-          %td 
-          %td 
+        %td= payment.repeater.frequency
+        %td= payment.repeater.period
         %td= @balance
