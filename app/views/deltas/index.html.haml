@@ -4,6 +4,7 @@
   %thead
     %tr
       %th Day
+      %th Month
       %th Name
       %th Amount
       %th Frequency
@@ -11,11 +12,13 @@
       %th Balance
 
   %tbody
-    - @payments.each do |payment|
-      - entry = payment.repeater.entry
+    - @payments.flatten.sort_by( &:when ).each do |payment|
+      - repeater = payment.repeater
+      - entry = repeater.entry
       - @balance -= entry.amount if entry.amount
       %tr
         %td= entry.day
+        %td= payment.when
         %td= entry.name
         %td= entry.amount
         %td= payment.repeater.frequency

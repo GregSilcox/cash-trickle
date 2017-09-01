@@ -1,11 +1,12 @@
 class Repeater < ApplicationRecord
+  has_many :payments
   belongs_to :entry
 
-  # this is intended or monthly payments
+  # this is intended for monthly payments
   def xpayments start_date, end_date
   	dates = start_date.step( end_date ).
   	  select {|date| date.day == entry.day }.
-  	  map { |date| payment.from date, entry }
+  	  map { |date| Payment.from date, entry, self.id }
   end
 end
 # 1. for a given entry, say Mortgage on the 15 of every month,

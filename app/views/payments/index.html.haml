@@ -1,6 +1,6 @@
 %h1 Listing payments
 
-%table
+%table.table
   %thead
     %tr
       %th Who
@@ -17,7 +17,7 @@
         %td= payment.who
         %td= payment.when
         %td= payment.amount
-        %td= payment.repeater
+        %td= payment.repeater.id
         %td= link_to 'Show', payment
         %td= link_to 'Edit', edit_payment_path(payment)
         %td= link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
