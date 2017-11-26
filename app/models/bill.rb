@@ -1,5 +1,5 @@
 # Who and amount of a repeating or single bill or income.
-class Entry < ApplicationRecord
+class Bill < ApplicationRecord
   has_many :repeaters
 
   def dates range, day
