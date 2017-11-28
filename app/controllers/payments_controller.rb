@@ -1,30 +1,23 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_model, 
+    only: [ :show, :edit, :update, :destroy ]
 
-  # GET /payments
-  # GET /payments.json
   def index
-    @payments = Payment.all
+    @payments = Payment.order :pay_on
   end
 
-  # GET /payments/1
-  # GET /payments/1.json
   def show
   end
 
-  # GET /payments/new
   def new
     @payment = Payment.new
   end
 
-  # GET /payments/1/edit
   def edit
   end
 
-  # POST /payments
-  # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = Payment.new( model_params )
 
     respond_to do |format|
       if @payment.save
@@ -37,11 +30,9 @@ class PaymentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /payments/1
-  # PATCH/PUT /payments/1.json
   def update
     respond_to do |format|
-      if @payment.update(payment_params)
+      if @payment.update( model_params )
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
@@ -51,8 +42,6 @@ class PaymentsController < ApplicationController
     end
   end
 
-  # DELETE /payments/1
-  # DELETE /payments/1.json
   def destroy
     @payment.destroy
     respond_to do |format|
@@ -63,12 +52,14 @@ class PaymentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_payment
+    def set_model
       @payment = Payment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def payment_params
-      params.require(:payment).permit(:who, :when, :amount, :repeater_id)
+    def model_params
+      params.require( :payment ).
+        permit( :who, :when, :amount, :repeater_id,
+          :due_on, :pay_on, :paid_on )
     end
 end

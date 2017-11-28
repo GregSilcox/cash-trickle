@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :payments
   resources :repeaters
-  resources :entries
+  resources :bills
   root 'deltas#index'
   resources :deltas
 end

@@ -3,24 +3,24 @@
 %table.table
   %thead
     %tr
-      %th Day
-      %th Month
-      %th Name
+      %th Due Day
+      %th Pay On
+      %th Payee
       %th Amount
       %th Frequency
       %th Period
       %th Balance
 
   %tbody
-    - @payments.flatten.sort_by( &:when ).each do |payment|
+    - @payments.each do |payment|
       - repeater = payment.repeater
-      - entry = repeater.entry
-      - @balance -= entry.amount if entry.amount
+      - bill = repeater.bill
+      - @balance -= bill.amount if bill.amount
       %tr
-        %td= entry.day
-        %td= payment.when
-        %td= entry.name
-        %td= entry.amount
+        %td= payment.repeater.bill.due_on
+        %td= payment.pay_on
+        %td= payment.repeater.bill.payee
+        %td= payment.repeater.bill.amount
         %td= payment.repeater.frequency
         %td= payment.repeater.period
         %td= @balance

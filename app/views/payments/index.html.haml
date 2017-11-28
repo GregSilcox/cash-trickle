@@ -3,10 +3,13 @@
 %table.table
   %thead
     %tr
-      %th Who
-      %th When
+      %th ID
+      %th Payee
+      %th Repeater ID
       %th Amount
-      %th Repeater
+      %th Due On
+      %th Pay On
+      %th Paid On
       %th
       %th
       %th
@@ -14,10 +17,13 @@
   %tbody
     - @payments.each do |payment|
       %tr
-        %td= payment.who
-        %td= payment.when
-        %td= payment.amount
+        %td= payment.id
+        %td= payment.repeater.bill.payee
         %td= payment.repeater.id
+        %td= payment.amount
+        %td= payment.due_on&.to_date
+        %td= payment.pay_on&.to_date
+        %td= payment.paid_on&.to_date
         %td= link_to 'Show', payment
         %td= link_to 'Edit', edit_payment_path(payment)
         %td= link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }

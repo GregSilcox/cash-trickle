@@ -3,10 +3,10 @@ class Repeater < ApplicationRecord
   belongs_to :bill
 
   # this is intended for monthly payments
-  def xpayments start_date, end_date
+  def generate_payments start_date, end_date
   	dates = start_date.step( end_date ).
-  	  select {|date| date.day == bill.due_on }.
-  	  map { |date| Payment.from date, bill, self.id }
+  	  select { |date| date.day == bill.due_on }.
+  	  map { |date| Payment.from date, bill, self }
   end
 end
 # 1. for a given entry, say Mortgage on the 15 of every month,

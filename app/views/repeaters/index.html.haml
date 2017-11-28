@@ -3,9 +3,9 @@
 %table.table
   %thead
     %tr
-      %th Name
+      %th Payee
       %th Amount
-      %th Day
+      %th Due On
       %th Frequency
       %th Period
       %th
@@ -15,9 +15,9 @@
   %tbody
     - @repeaters.each do |repeater|
       %tr
-        %td= repeater.entry.name
-        %td= repeater.entry.amount
-        %td= repeater.entry.day
+        %td= repeater.bill.payee
+        %td= repeater.bill.amount
+        %td= repeater.bill.due_on
         %td= repeater.frequency
         %td= repeater.period
         %td= link_to 'Show', repeater

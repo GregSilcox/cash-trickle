@@ -1,18 +1,24 @@
 %p#notice= notice
 
 %p
-  %b Who:
-  = @payment.who
+  %b Payee:
+  = @payment.repeater.bill.payee
 %p
-  %b When:
-  = @payment.when
+  %b Due On:
+  = @payment.due_on
+%p
+  %b Pay On:
+  = @payment.pay_on
+%p
+  %b Paid On:
+  = @payment.paid_on
 %p
   %b Amount:
   = @payment.amount
 %p
   %b Repeater:
-  = @payment.repeater
+  = @payment.repeater.id
 
-= link_to 'Edit', edit_payment_path(@payment)
+= link_to 'Edit', edit_payment_path( @payment )
 \|
 = link_to 'Back', payments_path

@@ -7,16 +7,19 @@
           %li= msg
 
   .field
-    = f.label :who
-    = f.text_field :who
-  .field
-    = f.label :when
-    = f.date_select :when
-  .field
     = f.label :amount
     = f.text_field :amount
   .field
-    = f.label :repeater
-    = f.text_field :repeater
+    = f.label :repeater_id
+    = f.text_field :repeater_id
+  .field
+    = f.label :due_on
+    = f.date_select :due_on
+  .field
+    = f.label :pay_on
+    = f.date_select :pay_on
+  .field
+    = f.label :paid_on
+    = f.date_select :paid_on
   .actions
     = f.submit 'Save'
